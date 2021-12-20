@@ -35,40 +35,42 @@ print(f"""
 
 {cyan}	By Mr.SaLeH | insta @8_uvw
 """)
-
-S1 = "qwertyuioplkjhgfdsazxcvbnm.-_"
+S1 = ("qwertyuiopasdfghjklzxcvbnm123465789")
 r = requests.Session()
+nam = 0
 while True:
-	user = str("".join(random.choice(S1)for i in range(5))) # <== user nam 4,5,6,7,
+	S2 = random.randint(3,5) # <== user nam 4,5,6,7,
+	nam += 1
+	user = str("".join(random.choice(S1)for i in range(S2)))
 	url = f'https://www.snapchat.com/add/{user}'
-    
-    #Mr.SaLeH
+	    
+	   #Mr.SaLeH
 	headers = {
-	 		'Host': 'www.snapchat.com',
-			'User-Agent':generate_user_agent(),
-			'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-			'Accept-Language': 'ar-SA,en-US;q=0.7,en;q=0.3',
-			'Accept-Encoding': 'gzip, deflate, br',
-			'Connection': 'keep-alive',
-			'Cookie': 'sc-cookies-accepted=true; Preferences=true; Performance=true; Marketing=true',
-			'Upgrade-Insecure-Requests': '1',
-			'Sec-Fetch-Dest': 'document',
-			'Sec-Fetch-Mode': 'navigate',
-			'Sec-Fetch-Site': 'none',
-			'Sec-Fetch-User': '?1',
-			'TE': 'trailers'}
-	
+		 		'Host': 'www.snapchat.com',
+				'User-Agent':generate_user_agent(),
+				'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+				'Accept-Language': 'ar-SA,en-US;q=0.7,en;q=0.3',
+				'Accept-Encoding': 'gzip, deflate, br',
+				'Connection': 'keep-alive',
+				'Cookie': 'sc-cookies-accepted=true; Preferences=true; Performance=true; Marketing=true',
+				'Upgrade-Insecure-Requests': '1',
+				'Sec-Fetch-Dest': 'document',
+				'Sec-Fetch-Mode': 'navigate',
+				'Sec-Fetch-Site': 'none',
+				'Sec-Fetch-User': '?1',
+				'TE': 'trailers'}# By Mr.SaLeH | insta @8_uvw
+		
 	req_login = r.get(url, headers=headers)
 
-	
-	if req_login.status_code==404:
 		
-		print(f"{blue}[]Done {user}")
+	if req_login.status_code==404:
+			
+		print(f"{blue}[{nam}]Done {user}")
 		ID = ''
 		token = ""
 		tlg = (f'''https://api.telegram.org/bot{token}/sendMessage?chat_id={ID}&text=fond By Mr.SaLeH ♔︎\n- User ➪ {user} ✓ \n━━━━━━━━━━━━━\n[insta @8_uvw]''')
-		
+			
 		reqte = requests.post(tlg)
 
 	else:
-		print(f"{red}==========\n {user}\nn==========")
+		print(f"{red}==={nam}=====\n{user}\n==========")# By Mr.SaLeH | insta @8_uvw
